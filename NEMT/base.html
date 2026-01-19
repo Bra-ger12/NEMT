@@ -1,0 +1,203 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}NEMT Transport{% endblock %}</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body,
+        html {
+            height: 100%;
+        }
+        /* NAVBAR */
+        
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 86, 179, 0.9);
+            color: white;
+            z-index: 1000;
+        }
+        
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .navbar nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        
+        .navbar nav a:hover {
+            text-decoration: underline;
+        }
+        /* HERO SECTION */
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url("{% static 'background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            padding-top: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        /* CONTENT BOX */
+        
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 1100px;
+            width: 95%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #0056b3;
+        }
+        /* SERVICES */
+        
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .service-box {
+            width: 320px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .service-box h3 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        
+        .service-box p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        /* FORMS */
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #0056b3;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #003f88;
+        }
+        /* FOOTER */
+        
+        footer {
+            background: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">NEMT Transport</div>
+        <nav>
+            <a href="{% url 'base' %}">Home</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'services' %}">Services</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    {% block content %}
+    <div class="hero">
+        <div class="box">
+            <h2>Our Medical Transportation Services</h2>
+
+            <div class="services">
+
+                <!-- Wheelchair Service -->
+                <div class="service-box">
+                    <img src="{% static 'wheelchair.jpg' %}" alt="Wheelchair Transport">
+                    <h3>Wheelchair Transportation</h3>
+                    <p>
+                        We offer safe, reliable, and comfortable wheelchair-accessible transportation for patients attending medical appointments, therapy sessions, and routine checkups.
+                    </p>
+                </div>
+
+                <!-- Stretcher Service -->
+                <div class="service-box">
+                    <img src="{% static 'stecters.jpg' %}" alt="Stretcher Transport">
+                    <h3>Stretcher Transportation</h3>
+                    <p>
+                        Our stretcher transportation service is designed for patients who cannot sit upright and require careful handling during non-emergency medical transfers.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 NEMT Transport. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

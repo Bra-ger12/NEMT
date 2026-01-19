@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %}Register - NEMT Transport{% endblock %} {% block content %}
+<div class="hero">
+    <div class="box" style="width:400px;">
+        <h2>Create Account</h2>
+
+
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="text" name="username" placeholder="Username" required>
+
+            <input type="email" name="email" placeholder="Email" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <input type="password" name="password2" placeholder="Confirm Password" required>
+
+            <button type="submit" class="btn-success">
+                Register
+            </button>
+
+            <p>
+                Already have an account?
+                <a href="{% url 'login' %}">Login</a>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock %}
